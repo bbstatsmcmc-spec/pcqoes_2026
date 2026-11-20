@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Licensee Quality of Experience Survey 2026</title>
+<title>Courier Quality of Experience Survey 2026</title>
 <style>
 :root{--ink:#14232e;--muted:#55677a;--line:#d5dde5;--paper:#fff;--bg:#eef2f5;--brand:#1b4965;--soft:#e3edf4;--ok:#1d7a46;--bad:#b3261e;--badsoft:#fdecea}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
@@ -25,7 +25,7 @@ h2{margin:28px 0 0;font-size:1.15rem;color:var(--brand)}.card h2{margin:0 0 6px}
 .statement{background:var(--soft);font-size:.93rem}
 label.o{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;cursor:pointer}
 label.o input{width:18px;height:18px;margin-top:3px;flex:none;accent-color:var(--brand)}
-label.f{display:block;font-weight:600;font-size:.93rem;margin:8px 0 4px}.req{color:var(--bad)}
+label.f{display:block;font-weight:600;font-size:.93rem;margin:8px 0 4px}.sn{font-size:.82rem;color:var(--muted);margin:-2px 0 6px}.req{color:var(--bad)}
 input[type=text],input[type=tel]{width:100%;padding:9px 10px;font:inherit;color:var(--ink);border:1px solid #9fb0bf;border-radius:5px;background:#fff;margin:2px 0}
 input:focus,button:focus-visible{outline:3px solid #7fb3d5;outline-offset:1px;border-color:var(--brand)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -53,7 +53,7 @@ select{width:100%;padding:10px 12px;margin:4px 0 8px;border:1px solid var(--line
 <div class=bar><i id=pg></i></div>
 <main id=app class=wrap></main>
 <script>
-const ENDPOINT="https://script.google.com/macros/s/AKfycbxFI9o73fTZl4wqgXS3aEqKH6s5fTZScrZOmqdnHC6gWzrOG5OL6OHQannnWIQCFDgvEA/exec"; /* PASTE the /exec URL of the NEW licensee Apps Script deployment here */ // Vercel: replace this with your Apps Script deployed /exec URL
+const ENDPOINT="https://script.google.com/macros/s/AKfycbzOYWWdvo8cenTqc8AgygzZweeF4whnPZWEmNWkPmknj-NrunkPLRwGDURNaTVjrpqd/exec"; // Vercel: replace this with your Apps Script deployed /exec URL
 const U={sel:["Select…","Pilih…"],stl:["State","Negeri"],dil:["District","Daerah"],sil:["Outlet and address","Outlet dan alamat"],nol:["The location is not in the list","Lokasi tiada dalam senarai"],ot:["Other, please specify","Lain-lain, sila nyatakan"],lw:["The location list could not be loaded. Tick the box below and type the address.","Senarai lokasi tidak dapat dimuatkan. Tandakan kotak di bawah dan taip alamat."],adr:["Type the full address of the interview location","Taip alamat penuh lokasi temu bual"],ti:["Courier Quality of Experience Survey 2026","Kajian Kualiti Pengalaman Kurier 2026"],ag:["Malaysian Communications and Multimedia Commission (MCMC)","Suruhanjaya Komunikasi dan Multimedia Malaysia (MCMC)"],cf:["Confidential","Sulit"],
 intro:["MCMC is conducting a survey on the quality of experience of courier services in Malaysia. Participation is voluntary and takes about 15 minutes. Your personal information is kept confidential and used for this survey only. We are not selling any product or collecting any money.","MCMC menjalankan survei kualiti pengalaman perkhidmatan kurier di Malaysia. Penyertaan adalah sukarela dan mengambil masa kira-kira 15 minit. Maklumat peribadi anda DIRAHSIAKAN dan hanya digunakan untuk survei ini. Kami tidak menjual apa-apa barangan atau mengutip wang."],
 sub:["Submit","Hantar"],fix:["Please answer the following before submitting:","Sila jawab soalan berikut sebelum menghantar:"],
@@ -62,7 +62,7 @@ rf:["Reference","Rujukan"],ed:["Edit and resubmit","Edit dan hantar semula"],kp:
 ct:["For assistance: MCMC 1-800-188-030","Untuk bantuan: MCMC 1-800-188-030"],sp:["Please specify","Sila nyatakan"],im:["Importance","Kepentingan"],sa:["Satisfaction","Kepuasan"],
 lgi:["IMPORTANCE: 1 Extremely not important · 3 Neutral · 5 Extremely important<br>SATISFACTION: 1 Extremely not satisfied · 3 Neutral · 5 Extremely satisfied","KEPENTINGAN: 1 Sangat tidak penting · 3 Neutral · 5 Sangat penting<br>KEPUASAN: 1 Sangat tidak berpuas hati · 3 Neutral · 5 Sangat berpuas hati"],
 gt:["Please rate the IMPORTANCE and SATISFACTION LEVEL of each statement below on a scale from 1 to 5.","Sila nilaikan KEPENTINGAN dan TAHAP KEPUASAN bagi setiap pernyataan di bawah menggunakan skala 1 hingga 5."],
-nm:["Name","Nama"],em:["Phone Number","Nombor Telefon"],end:["Thank you for your participation. This survey is not applicable to you. Queries: MCMC 1-800-188-030.","Terima kasih atas penyertaan anda. Survei ini tidak berkaitan dengan anda. Pertanyaan: MCMC 1-800-188-030."]};
+nm:["Name","Nama"],em:["Phone Number","Nombor Telefon"],emn:["For Touch 'n Go eWallet RM5 token.","Untuk token e-wallet Touch 'n Go RM5."],end:["Thank you for your participation. This survey is not applicable to you. Queries: MCMC 1-800-188-030.","Terima kasih atas penyertaan anda. Survei ini tidak berkaitan dengan anda. Pertanyaan: MCMC 1-800-188-030."]};
 const YN="Yes|Ya;No|Tidak",FR="Which of the following issues causes the most frustration when frequently faced?|Antara berikut, situasi yang manakah paling mengecewakan apabila sering mengalaminya?";
 const Q=[
 {h:"Verification|Pengesahan"},
@@ -70,7 +70,7 @@ const Q=[
 {id:"Q2",ty:"s",t:"Which age group do you belong to?|Sila pilih lingkungan kumpulan umur anda",o:"Below 15|Bawah 15;15 – 19;20 – 24;25 – 29;30 – 34;35 – 39;40 – 44;45 – 49;50 – 54;55 – 59;60 – 64;65 and above|65 dan ke atas",end:v=>v==1},
 {id:"Q2.1",ty:"s",sh:()=>A.Q2==2,t:"Before I proceed, may I seek your parent or guardian’s consent? (Personal Data Protection Act 2010: parental consent is required for respondents below 18.)|Sebelum saya meneruskan, bolehkah saya mendapatkan kebenaran daripada ibu bapa atau penjaga anda? (Akta Perlindungan Data Peribadi 2010: kebenaran ibu bapa diperlukan bagi responden bawah 18 tahun.)",o:YN,end:v=>v==2},
 {h:"Introduction|Pengenalan"},
-{id:"Q3",ty:"s",t:"For the purpose of this survey, please choose the courier service that you used.|Bagi tujuan survei ini, sila pilih perkhidmatan kurier yang digunakan.",o:"Ninja Logistics;Lazada;GDEX"},
+{id:"Q3",ty:"s",t:"For the purpose of this survey, please choose the courier service that you used.|Bagi tujuan survei ini, sila pilih perkhidmatan kurier yang digunakan.",o:"J&T Express;SPX Express;Ninja Logistics;Lazada;GDEX;Pos Laju – Pos Malaysia"},
 {id:"Q4",ty:"s",sh:()=>A.Q3,t:"In 2026, how frequently do you use [SVC] service?|Dalam tahun 2026, berapa kerapkah anda menggunakan perkhidmatan kurier [SVC]?",o:"Daily basis|Setiap hari;At least once a week|Secara mingguan;At least once a month|Secara bulanan;A few times within this period|Beberapa kali setahun;Once a year|Setahun sekali;First time within this period|Kali pertama dalam tempoh ini;Do not know / Cannot remember|Tidak tahu / Tidak ingat"},
 {id:"Q5",ty:"s",sh:()=>A.Q3,t:"Approximately how far is your residence from the nearest [SVC] service point?|Berapa jarak antara kediaman anda dengan pusat perkhidmatan [SVC] yang terdekat?",o:"Less than 1km|Kurang daripada 1km;1km to 3km|1km – 3km;3km – 5km;5km – 10km;More than 10km|Lebih dari 10km;Do not know|Tidak tahu"},
 {h:"Criteria 1: Delivery performance|Kriteria 1: Prestasi penghantaran"},
@@ -152,17 +152,17 @@ if(!ok)m.push(q.id);if(q.end&&a!=null&&q.end(a))break}return m}
 function R(){document.documentElement.lang=lang;$("ti").textContent=u("ag");$("sub").textContent=u("ti");$("cf").textContent=u("cf");$("b0").className=lang=="en"?"on":"";$("b1").className=lang=="ms"?"on":"";document.title=u("ti");
 if(fin){$("app").innerHTML=`<div class=card><h2>${u("ok")}</h2><p>${u("th")}</p><p>${u("rf")}: <span class=ref>${ref}</span></p><p class=n>${u("kp")}</p><button class="btn ghost" onclick="fin=0;R()">${u("ed")}</button></div><div class=help>${u("ct")}</div>`;return}
 let y=window.scrollY,[o,stop]=run(),ms=missing(),tot=Q.filter(q=>!q.h&&vis(q)).length;
-let h=`<div class="card statement">${u("intro")}</div><div class=card><label class=f>${u("nm")}</label><input type=text value="${(X.rn||"").replace(/"/g,"&quot;")}" onchange="X.rn=this.value"><label class=f>${u("em")}</label><input type=tel inputmode=tel autocomplete=tel value="${X.re||""}" onchange="X.re=this.value"></div>`+o.join("");
+let h=`<div class="card statement">${u("intro")}</div><div class=card><label class=f>${u("nm")}</label><input type=text value="${(X.rn||"").replace(/"/g,"&quot;")}" onchange="X.rn=this.value"><label class=f>${u("em")}</label><div class=sn>${u("emn")}</div><input type=tel inputmode=tel autocomplete=tel value="${X.re||""}" onchange="X.re=this.value"></div>`+o.join("");
 if(stop)h+=`<div class=card><p>${u("end")}</p><button class=btn onclick="send('terminated')">${u("sub")}</button></div>`;
 else h+=`<div class="card er ${err.length?"":"hid"}" id=es><b>${u("fix")}</b><ul>${err.map(e=>`<li>${dn(e)}</li>`).join("")}</ul></div><button class=btn onclick="send('complete')">${u("sub")}</button>`;
 $("app").innerHTML=h+`<div class=help>${u("ct")}</div>`;$("pg").style.width=Math.round((tot-ms.length)/tot*100)+"%";window.scrollTo(0,y)}
 function flat(){let d={};for(const q of Q){if(q.h||!vis(q)||A[q.id]==null)continue;let a=A[q.id],id=q.id;
 if(q.ty=="g")Object.entries(a).forEach(([k,r])=>{d[`Q${k}_imp`]=r.i;d[`Q${k}_sat`]=r.s});
-else if(q.ty=="loc"){d[id]=a;let s=SITE[a];if(s){d[id+"_outlet"]=s.n;d[id+"_address"]=s.a;d[id+"_state"]=s.s;d[id+"_district"]=s.d}}else{d[id]=Array.isArray(a)?[...a].sort((x,y)=>x-y).join(";"):a;if(id=="Q3"&&Q3O[a-1])d.Q3_licensee=Q3O[a-1]}
+else if(q.ty=="loc"){d[id]=a;let s=SITE[a];if(s){d[id+"_outlet"]=s.n;d[id+"_address"]=s.a;d[id+"_state"]=s.s;d[id+"_district"]=s.d}}else d[id]=Array.isArray(a)?[...a].sort((x,y)=>x-y).join(";"):a;
 if(X[id])d[id+"_other"]=X[id];if(q.end&&q.end(a))break}return d}
 async function send(st){if(st=="complete"){err=missing();let si=-1;for(const q of Q){if(q.h){si++;continue}if(err.includes(q.id))SO[si]=1}if(err.length){R();$("es")&&$("es").scrollIntoView();return}}
-ref=ref||"LCQC-"+new Date().toISOString().slice(2,10).replace(/-/g,"")+"-"+Math.random().toString(36).slice(2,7).toUpperCase();
-let b={survey:"licensee",ref,ts:new Date().toISOString(),lang,status:st,name:X.rn||"",phone:X.re||"",data:flat()};
+ref=ref||"PCQC-"+new Date().toISOString().slice(2,10).replace(/-/g,"")+"-"+Math.random().toString(36).slice(2,7).toUpperCase();
+let b={survey:"courier",ref,ts:new Date().toISOString(),lang,status:st,name:X.rn||"",phone:X.re||"",data:flat()};
 try{if(ENDPOINT)await fetch(ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(b)});else console.log("ENDPOINT not set",b)}catch(e){console.error(e)}
 fin=1;err=[];R();window.scrollTo(0,0)}
 R();
